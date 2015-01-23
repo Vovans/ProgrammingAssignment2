@@ -1,15 +1,15 @@
 #Our aim here to compute matrix inverse and cache it for next computations,
 #for example. 
 
-#There are two functions here. Function makeCacheMatrix creates a list of four another
-#functions. These 4 function can set the value of the matrix, get the value of
-#the matrix, set the inverse of the matrix and get the inverse of the matrix.
+#There are two functions here.
 
-#first we define function with argument x which is matrix
+#Function makeCacheMatrix get a matrix (which we want to inverse) as argument
+#and creates a list of four another functions. 
+#These 4 function can set the value of the matrix, get the value of
+#the matrix, set the inverse of the matrix and get the inverse of the matrix.
+#The inverse of matrix is set to variable m. There we can cache that value.
+
 makeCacheMatrix <- function(x = matrix()) {
-        #m is the inverse of the matrix. We set it for NULL. We must defined
-        #this variable here because in the opposite case the function set set m in
-        #the global environment, not in makeCacheMatrix's environment.
         m <- NULL 
         
         set <- function(y) {
@@ -30,8 +30,10 @@ makeCacheMatrix <- function(x = matrix()) {
              getsolve = getsolve)
 }
 
-
-## Write a short comment describing this function
+#Function cacheSolve computes the inverse of matrix returned by makeCacheMatrix
+#If the inverse has already been calculated then the cacheSolve 
+#get the inverse from the cache (actually just get the value m from makeCacheMatrix's
+# environment). 
 
 cacheSolve <- function(x, ...) {
         m <- x$getsolve()
