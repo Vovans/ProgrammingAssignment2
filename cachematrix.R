@@ -1,4 +1,4 @@
-#Our aim here to compute matrix inverse and cache it for next computations,
+#Our aim here is to compute matrix inverse and cache it for next computations,
 #for example. 
 
 #There are two functions here.
